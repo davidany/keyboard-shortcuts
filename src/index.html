@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alpine.js Keyboard Shortcuts</title>
+    <script src="./node_modules/alpinejs/dist/alpine.js" defer></script>
+    <script src="./src/keyboard.js" defer></script>
+    <!-- Add some basic styles here -->
+</head>
+<body>
+
+<div x-data="keyboardShortcuts()">
+    <div class="keyboard">
+        <!-- Keyboard UI -->
+    </div>
+    <ul class="shortcuts">
+        <template x-for="(shortcut, index) in shortcuts" :key="index">
+            <li @mouseover="showCombo(index)" @mouseleave="hideCombo(index)">
+                <span x-text="shortcut.name"></span>
+                <span x-show="shortcut.hover" x-text="shortcut.combo"></span>
+            </li>
+        </template>
+    </ul>
+</div>
+
+</body>
+</html>
